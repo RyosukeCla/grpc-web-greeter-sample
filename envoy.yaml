@@ -21,7 +21,7 @@ static_resources:
               domains: ["*"]
               routes:
               - match: { prefix: "/" }
-                route: { cluster: echo_service }
+                route: { cluster: greeter_service }
               cors:
                 allow_origin:
                 - "*"
@@ -35,7 +35,7 @@ static_resources:
           - name: envoy.cors
           - name: envoy.router
   clusters:
-  - name: echo_service
+  - name: greeter_service
     connect_timeout: 0.25s
     type: logical_dns
     http2_protocol_options: {}
