@@ -31,8 +31,8 @@ services:
       - .:/home/admin/app:delegated
 
   web-server:
-    image: node ./src/web/server.js
-    command: bash
+    image: nodeserver
+    command: node ./src/web/server.js
     ports:
       - "8081:8081"
     depends_on:

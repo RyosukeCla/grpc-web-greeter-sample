@@ -12,4 +12,7 @@ RUN chown -R admin:admin $HOME
 
 USER admin
 
+COPY ./package.json $HOME/app/package.json
+COPY ./package-lock.json $HOME/app/package-lock.json
+
 RUN npm i
