@@ -1,0 +1,33 @@
+{
+  "name": "grpc-web-echo",
+  "version": "1.0.0",
+  "description": "```bash $ docker-compose up -d ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyosukeCla/grpc-web-echo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyosukeCla/grpc-web-echo/issues"
+  },
+  "homepage": "https://github.com/RyosukeCla/grpc-web-echo#readme",
+  "dependencies": {
+    "async": "2.6.1",
+    "express": "4.16.4",
+    "google-protobuf": "3.6.1",
+    "grpc": "1.15.1",
+    "grpc-web": "1.0.0",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "react-hyperscript": "3.2.0"
+  },
+  "devDependencies": {
+    "webpack": "4.23.1",
+    "webpack-cli": "3.1.2"
+  }
+}

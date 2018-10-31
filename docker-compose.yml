@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  protobuf:
+    build:
+      context: ./
+      dockerfile: ./docker/protobuf/Dockerfile
+    image: protobuf/toolchain
+
+  envoy:
+    image: envoyproxy/envoy:latest
+    ports:
+      - "8080:8080"
+    command: /usr/local/bin/envoy -c /etc/envoy/envoy.yaml -l trace --log-path /tmp/envoy_info.log
+    links:
+      - node-server
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+
+  node-server:
+    build:
+      context: ./
+      dockerfile: ./docker/node-server/Dockerfile
+    image: nodeserver
+    command: node ./src/server/greeter_server.js
+    ports:
+      - "9090:9090"
+    depends_on:
+      - protobuf
+    volumes:
+      - .:/home/admin/app:delegated
+
+  web-server:
+    image: node ./src/web/server.js
+    command: bash
+    ports:
+      - "8081:8081"
+    depends_on:
+      - node-server
+    volumes:
+      - .:/home/admin/app:delegated
