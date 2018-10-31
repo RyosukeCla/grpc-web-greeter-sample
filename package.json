@@ -1,5 +1,5 @@
 {
-  "name": "grpc-web-echo",
+  "name": "grpc-web-greeter-sample",
   "version": "1.0.0",
   "description": "```bash $ docker-compose up -d ```",
   "main": "index.js",
